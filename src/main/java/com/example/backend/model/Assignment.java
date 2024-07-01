@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -28,6 +29,7 @@ public class Assignment {
     private User user;
 
     @OneToOne(mappedBy = "assignment", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Grade grade;
 
     // Getters and Setters

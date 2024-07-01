@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,7 +12,9 @@ public class Grade {
     private long id;
 
     @OneToOne
-    @JoinColumn(name = "assignment_id", referencedColumnName = "id")
+    @JoinColumn(name = "assignment_id")
+
+    @JsonBackReference
     private Assignment assignment;
 
     @Column(name = "feedback")
